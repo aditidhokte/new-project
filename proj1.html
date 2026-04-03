@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditi Jewellery Shop</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e7bca2;
+      color: #333;
+    }
+    header {
+      background-color: #ef67bf;
+      text-align: center;
+      padding: 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    header p {
+      font-style: italic;
+      margin: 5px 0 0;
+    }
+    nav {
+      background-color: #c1f3f5;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    section {
+      padding: 30px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .item {
+      background-color: #dcf1f2;
+      border: 1px solid #cfcdee;
+      border-radius: 8px;
+      width: 220px;
+      padding: 15px;
+      box-shadow: 2px 2px 6px rgba(232, 182, 182, 0.1);
+    }
+    .item img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .item h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+    }
+    .item p {
+      font-size: 0.9em;
+      color: #555;
+    }
+    .buy-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: #ef67bf;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #f8b1ea;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+    /* Product detail page */
+    #product-page {
+      display: none;
+      padding: 40px;
+      text-align: center;
+      background-color: #f9e3d3;
+    }
+    #product-page img {
+      width: 300px;
+      border-radius: 10px;
+    }
+    #product-page h1 {
+      color: #b84e8a;
+    }
+    #product-page p {
+      font-size: 1.1em;
+      color: #444;
+    }
+    .price {
+      font-size: 1.5em;
+      color: #d12f6d;
+      font-weight: bold;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ef67bf;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>✨ Aditi Jewellery Shop ✨</h1>
+    <p>Elegant Designs, Timeless Beauty</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">Collections</a> |
+    <a href="#">About Us</a> |
+    <a href="#">Contact</a> |
+    <a href="#">Add to Cart</a>
+  </nav>
+
+  <!-- Shop Page -->
+  <section id="shop-page">
+    <h2>Our Featured Jewellery</h2>
+    <div class="items">
+      <div class="item">
+        <img src="c:\Users\Admin\Desktop\1713871257_773d41230ea6d358dcd5.png" alt="Gold Necklace">
+        <h3>Gold Necklace</h3>
+        <p>Beautiful handcrafted gold necklace.</p>
+        <button class="buy-btn" onclick="showProduct('Gold Necklace','gold-necklace.jpg','Beautiful handcrafted gold necklace, perfect for weddings and celebrations.','₹50,000')">Buy Now</button>
+      </div>
+      <div class="item">
+        <img src="c:\Users\Admin\Desktop\images.jpg" alt="Diamond Ring">
+        <h3>Diamond Ring</h3>
+        <p>Elegant diamond ring for special occasions.</p>
+        <button class="buy-btn" onclick="showProduct('Diamond Ring','diamond-ring.jpg','Elegant diamond ring with sparkling clarity.','₹75,000')">Buy Now</button>
+      </div>
+      <div class="item">
+        <img src="c:\Users\Admin\Desktop\na-vin04-celestique-original-imah32ptysgyh9hh.webp" alt="Pearl Earrings">
+        <h3>Pearl Earrings</h3>
+        <p>Classic pearl earrings with modern design.</p>
+        <button class="buy-btn" onclick="showProduct('Pearl Earrings','pearl-earrings.jpg','Classic pearl earrings with a modern twist.','₹20,000')">Buy Now</button>
+      </div>
+      <div class="item">
+        <img src="c:\Users\Admin\Desktop\brac.webp" alt="Gold Bracelet">
+        <h3>Gold Bracelet</h3>
+        <p>Stylish bracelet to complement your look.</p>
+        <button class="buy-btn" onclick="showProduct('Gold Bracelet','BRC.jpg','Stylish gold bracelet for everyday elegance.','₹30,000')">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Detail Page -->
+  <section id="product-page">
+    <h1 id="product-title"></h1>
+    <img id="product-img" src="" alt="">
+    <p id="product-desc"></p>
+    <p class="price" id="product-price"></p>
+    <button class="back-btn" onclick="goBack()">Back to Shop</button>
+  </section>
+
+  <footer>
+    © 2026 Aditi Jewellery Shop
+  </footer>
+
+  <script>
+    function showProduct(title, img, desc, price) {
+      document.getElementById('shop-page').style.display = 'none';
+      document.getElementById('product-page').style.display = 'block';
+      document.getElementById('product-title').innerText = title;
+      document.getElementById('product-img').src = img;
+      document.getElementById('product-img').alt = title;
+      document.getElementById('product-desc').innerText = desc;
+      document.getElementById('product-price').innerText = "Price: " + price;
+    }
+    function goBack() {
+      document.getElementById('product-page').style.display = 'none';
+      document.getElementById('shop-page').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
